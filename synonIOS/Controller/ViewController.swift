@@ -23,8 +23,8 @@ class ViewController: UIViewController {
     let thesaurusDataModel = ThesaurusDataModel()
     
     //Constant Declaration
-    let endPoint : String = "https://w602e30xq1.execute-api.us-east-1.amazonaws.com/dev/"
-    let synonymQuery : String = "/synonym?word="
+    let endPoint: String = "https://w602e30xq1.execute-api.us-east-1.amazonaws.com/dev/"
+    let synonymQuery: String = "/synonym?word="
     
     
     override func viewDidLoad() {
@@ -36,7 +36,7 @@ class ViewController: UIViewController {
     //Function for generate the final endpoint
     @IBAction func searchButtonPressed(_ sender: Any) {
         
-        let finalUrl : String = endPoint + synonymQuery + textField.text!
+        let finalUrl: String = endPoint + synonymQuery + textField.text!
         
         //calling the function for the api request with the final URL
         getSynonym(with: finalUrl)
@@ -88,8 +88,9 @@ class ViewController: UIViewController {
             let destinationVC = segue.destination as? SecondViewController
             destinationVC?.textLabel = textField.text!
             destinationVC?.thesaurusModel = thesaurusDataModel.synonymArray
-            //print("Tamanho: \(thesaurusDataModel.synonymArray.count)")
+            thesaurusDataModel.synonymArray.removeAll()
         }
     }
+    
 }
 

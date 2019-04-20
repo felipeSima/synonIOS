@@ -16,22 +16,30 @@ class SecondViewController: UIViewController {
     @IBOutlet weak var wordLabel: UILabel!
     @IBOutlet weak var textBody: UITextView!
     
+    let thesaurusDataModel = ThesaurusDataModel()
+    
     //Variables Declaration
     var thesaurusModel = [String]()
-    var textLabel : String = ""
-    var textToPrint : String = ""
+    var textLabel: String = ""
+    var textToPrint: String = ""
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        textBody.text = ""
+        setupVC()
+        
+    }
+    
+    func setupVC() {
         
         //Setting the Head with the word chosen to find the Synonym
         wordLabel?.text = textLabel
-        
         for index in 0..<thesaurusModel.count {
             textToPrint += "\n \(thesaurusModel[index])"
         }
-        //filling the TextView with the object data
+        //Filling the TextView with the object data
         textBody.text = textToPrint
+        textToPrint = ""
     }
 }
